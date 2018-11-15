@@ -56,6 +56,31 @@ let createCache = (options?: Options): EmotionCache => {
   let stylis = new Stylis(stylisOptions)
 
   if (process.env.NODE_ENV !== 'production') {
+    const commentStart = /\/\*/g
+    const commentEnd = /\*\//g
+
+    const oldStylis = stylis
+    stylis = (selector, styles) => {
+      while (commentStart.test(styles)) {
+        commentEnd.lastIndex = commentStart.lastIndex
+
+        if (commentEnd.test(styles)) {
+          commentStart.lastIndex = commentEnd.lastIndex
+          continue
+        }
+
+        throw new Error(
+          'Your styles have unterminated comment ("/*" without corresponding "*/"). Please fix it.'
+        )
+      }
+
+      commentStart.lastIndex = 0
+      return oldStylis(selector, styles)
+    }
+    stylis.use = oldStylis.use
+  }
+
+  if (process.env.NODE_ENV !== 'production') {
     // $FlowFixMe
     if (/[^a-z-]/.test(key)) {
       throw new Error(
@@ -89,6 +114,7 @@ let createCache = (options?: Options): EmotionCache => {
     sheet: StyleSheet,
     shouldCache: boolean
   ) => string | void
+
   if (isBrowser) {
     stylis.use(options.stylisPlugins)(ruleSheet)
 
