@@ -8,12 +8,15 @@
   "license": "MIT",
   "repository": "https://github.com/emotion-js/emotion/tree/master/packages/css",
   "scripts": {
-    "test:typescript": "dtslint types"
+    "test:typescript": "dtslint types",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "@emotion/serialize": "0.11.0",
     "@emotion/utils": "0.11.1",
-    "babel-plugin-emotion": "10.0.0-beta.13"
+    "babel-plugin-emotion": "10.0.0-beta.13",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "dtslint": "^0.3.0"
@@ -30,5 +33,6 @@
   "browser": {
     "./dist/css.cjs.js": "./dist/css.browser.cjs.js",
     "./dist/css.esm.js": "./dist/css.browser.esm.js"
-  }
+  },
+  "snyk": true
 }
