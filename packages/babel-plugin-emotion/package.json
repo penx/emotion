@@ -18,7 +18,8 @@
     "convert-source-map": "^1.5.0",
     "escape-string-regexp": "^1.0.5",
     "find-root": "^1.1.0",
-    "source-map": "^0.5.7"
+    "source-map": "^0.5.7",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "babel-check-duplicated-nodes": "^1.0.0",
@@ -40,5 +41,10 @@
   },
   "publishConfig": {
     "tag": "next"
-  }
+  },
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }
