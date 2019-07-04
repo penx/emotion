@@ -5,7 +5,9 @@
   "scripts": {
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html --public-url .",
-    "run-benchmark": "node run.js"
+    "run-benchmark": "node run.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "@babel/core": "^7.0.0",
@@ -20,9 +22,11 @@
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-native-web": "0.9.6",
-    "stats-analysis": "^2.0.0"
+    "stats-analysis": "^2.0.0",
+    "snyk": "^1.189.0"
   },
   "alias": {
     "react-native": "react-native-web"
-  }
+  },
+  "snyk": true
 }
