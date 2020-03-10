@@ -43,7 +43,7 @@
     "styled-system": "^1.0.8",
     "unified": "^6.1.6",
     "unist-util-visit": "^1.2.0",
-    "webpack-bundle-analyzer": "2.13.1",
+    "webpack-bundle-analyzer": "3.1.0",
     "worker-loader": "2.0.0",
     "workerize-loader": "^1.0.3"
   },
