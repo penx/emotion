@@ -16,14 +16,17 @@
   "author": "mitchellhamilton <mitchell@mitchellhamilton.me>",
   "license": "MIT",
   "scripts": {
-    "test:typescript": "dtslint types"
+    "test:typescript": "dtslint types",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "@emotion/cache": "10.0.0-beta.13",
     "@emotion/css": "10.0.0-beta.13",
     "@emotion/serialize": "0.11.0",
     "@emotion/sheet": "0.9.2",
-    "@emotion/utils": "0.11.1"
+    "@emotion/utils": "0.11.1",
+    "snyk": "^1.316.1"
   },
   "peerDependencies": {
     "react": ">=16.3.0"
@@ -45,5 +48,6 @@
   "umd:main": "dist/core.umd.min.js",
   "preconstruct": {
     "umdName": "emotionCore"
-  }
+  },
+  "snyk": true
 }
