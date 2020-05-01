@@ -10,7 +10,8 @@
   "dependencies": {
     "@emotion/is-prop-valid": "0.7.1",
     "@emotion/primitives-core": "10.0.0-beta.13",
-    "babel-plugin-emotion": "10.0.0-beta.13"
+    "babel-plugin-emotion": "10.0.0-beta.13",
+    "snyk": "^1.316.1"
   },
   "peerDependencies": {
     "react-primitives": "^0.7.0"
@@ -43,5 +44,10 @@
   "browser": {
     "./dist/primitives.cjs.js": "./dist/primitives.browser.cjs.js",
     "./dist/primitives.esm.js": "./dist/primitives.browser.esm.js"
-  }
+  },
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }
